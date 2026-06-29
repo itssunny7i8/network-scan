@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+dist/
+build/
+.cache/
+
+# Environment files (never commit real secrets)
+.env
+.env.local
+.env.production
+.env.development
+
+# TypeScript compilation output
+backend/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor configs
+.vscode/
+.idea/
+
+# Vite temp
+frontend/.vite/
