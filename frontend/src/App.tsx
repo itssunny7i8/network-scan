@@ -93,10 +93,9 @@ export default function App() {
             <div className="p-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg group-hover:bg-emerald-500/20 transition-all">
               <Shield className="h-5 w-5 text-emerald-400" />
             </div>
-            <div className="text-left">
-              <span className="font-extrabold text-base tracking-tight block">NMAP</span>
-              <span className="font-mono text-[9px] text-gray-500 block leading-none">LAB-SIMULATOR v1.0</span>
-            </div>
+              <div className="text-left">
+                <span className="font-extrabold text-base tracking-tight block">Network Scanner</span>
+              </div>
           </button>
 
           {/* Desktop Navigation */}
@@ -133,7 +132,7 @@ export default function App() {
               }`}
             >
               <BookOpen className="h-4 w-4" />
-              About Nmap
+                About
             </button>
           </nav>
 
@@ -184,7 +183,7 @@ export default function App() {
                 }`}
               >
                 <BookOpen className="h-4 w-4" />
-                About Nmap
+                  About
               </button>
             </div>
           </motion.div>
@@ -209,13 +208,13 @@ export default function App() {
       {/* Footer Details */}
       <footer className="border-t border-white/5 bg-[#070A10] px-4 py-6 text-center text-xs text-gray-500 font-light">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Shield className="h-4 w-4 text-emerald-500/50" />
-            <span>Nmap Network Scanner Simulator • University cybersecurity lab showcase</span>
-          </div>
-          <div>
-            <span>Disclaimer: strictly for instructional and training labs.</span>
-          </div>
+            <div className="flex items-center gap-2">
+              <Shield className="h-4 w-4 text-emerald-500/50" />
+              <span>Network Scanner • Network discovery and reporting tool</span>
+            </div>
+            <div>
+              <span>Disclaimer: for authorized testing on networks you own or are permitted to test.</span>
+            </div>
         </div>
       </footer>
 

@@ -1,7 +1,7 @@
 {
-  "name": "nmap-simulator-backend",
+  "name": "network-scanner-backend",
   "version": "1.0.0",
-  "description": "Backend for educational Nmap simulator",
+  "description": "Backend API for Network Scanner application",
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only server.ts",

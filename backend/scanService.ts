@@ -134,7 +134,7 @@ export class MockScanService implements IScanService {
     }
   }
 
-  // Generates ASCII console output similar to what Nmap outputs
+  // Generates ASCII console output similar to classic network scanner tools
   private generateRawConsole(
     target: string, 
     ip: string, 
@@ -143,7 +143,7 @@ export class MockScanService implements IScanService {
     scanTimeSeconds: string
   ): string {
     const timestamp = new Date().toLocaleString();
-    let cmd = `nmap `;
+    let cmd = `scan `;
     
     switch (scanType) {
       case 'quick':
@@ -165,8 +165,9 @@ export class MockScanService implements IScanService {
         cmd += `${target}`;
     }
 
-    let out = `Starting Nmap 7.92 ( https://nmap.org ) at ${timestamp}\n`;
-    out += `Nmap scan report for ${profile.hostname} (${ip})\n`;
+
+    let out = `Starting network scan at ${timestamp}\n`;
+    out += `Scan report for ${profile.hostname} (${ip})\n`;
     out += `Host is up (latency: ${profile.latency}).\n`;
     
     // Filter ports based on scanType (e.g. UDP scan changes protocol to udp, quick scan limits ports)
@@ -207,7 +208,7 @@ export class MockScanService implements IScanService {
       out += `1   ${profile.latency} ${ip}\n`;
     }
 
-    out += `\nNmap done: 1 IP address (1 host up) scanned in ${scanTimeSeconds} seconds\n`;
+    out += `\nScan complete: 1 IP address (1 host up) processed in ${scanTimeSeconds} seconds\n`;
     return out;
   }
 

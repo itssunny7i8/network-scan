@@ -17,10 +17,10 @@ export default function About() {
       {/* Page Header */}
       <div className="mb-10 text-center md:text-left">
         <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">
-          About <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Network Reconnaissance</span>
+          About <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Network Overview</span>
         </h1>
         <p className="text-gray-400 max-w-2xl font-light">
-          Master the core fundamentals of network mapping, port scanning states, TCP packet handshakes, and ethical security testing frameworks.
+          Learn the fundamentals of network mapping, port state concepts, TCP packet handshakes, and ethical scanning practices.
         </p>
       </div>
 
@@ -38,7 +38,7 @@ export default function About() {
             }`}
           >
             <HelpCircle className="h-4 w-4" />
-            What is Nmap?
+              Overview
           </button>
           
           <button
@@ -90,12 +90,12 @@ export default function About() {
               className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 shadow-xl min-h-[450px]"
             >
               
-              {/* Tab 1: What is Nmap */}
+              {/* Tab 1: Overview */}
               {activeTab === 'what' && (
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-4">What is Nmap?</h2>
+                  <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
                   <p className="text-gray-400 leading-relaxed font-light mb-6">
-                    <strong>Nmap</strong> (Network Mapper) is a free and open-source utility for network discovery and security auditing. It was designed by Gordon Lyon (also known by his pseudonym <em>Fyodor Vaskovich</em>) to rapidly scan large networks, although it works fine against single hosts.
+                      Network scanning tools are used to discover hosts and services on a network. They help security professionals map topology, identify open ports, and collect service version information for risk assessment.
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -105,7 +105,7 @@ export default function About() {
                         Host Discovery
                       </h3>
                       <p className="text-sm text-gray-400 font-light leading-relaxed">
-                        Identify active devices (hosts) on a network. Nmap does this by sending ICMP Echo requests, TCP SYN packets to common ports, and ARP requests inside local subnets.
+                        Identify active devices (hosts) on a network. Typical techniques include ICMP Echo requests, TCP SYN packets to common ports, and ARP requests inside local subnets.
                       </p>
                     </div>
 
@@ -144,7 +144,7 @@ export default function About() {
                           TCP SYN Scan (Half-Open)
                         </h3>
                         <p className="text-xs text-gray-400 font-light leading-relaxed mb-6">
-                          Nmap sends a SYN (synchronize) packet. If it gets a SYN-ACK back, the port is open. Nmap immediately sends a RST (reset) to tear down the connection before it completes. This is stealthier since it doesn't open a full session.
+                          A SYN (synchronize) packet is sent. If a SYN-ACK is received, the port is considered open. The scanner may then send a RST (reset) to close the connection before completing the handshake to avoid opening a full session.
                         </p>
                       </div>
 
@@ -186,7 +186,7 @@ export default function About() {
                           TCP Connect Scan (Full)
                         </h3>
                         <p className="text-xs text-gray-400 font-light leading-relaxed mb-6">
-                          Nmap attempts a full TCP three-way handshake. The operating system completes the connection via the standard network socket API. This is louder and is logged on the target server.
+                          A full TCP three-way handshake is attempted. The operating system completes the connection via the standard network socket API. This is louder and is often logged on the target server.
                         </p>
                       </div>
 
@@ -226,9 +226,9 @@ export default function About() {
               {/* Tab 3: Scan Mechanisms */}
               {activeTab === 'scans' && (
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-4">Common Nmap Scan Flags</h2>
+                  <h2 className="text-2xl font-bold text-white mb-4">Common Scan Flags</h2>
                   <p className="text-gray-400 leading-relaxed font-light mb-6">
-                    Each Nmap scan utilizes specific techniques depending on speed, stealth, and granularity targets.
+                      Different scan flags influence speed, stealth, and detail level of scans.
                   </p>
 
                   <div className="space-y-4">

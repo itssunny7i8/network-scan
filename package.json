@@ -1,7 +1,7 @@
 {
-  "name": "nmap-network-scanner-simulator",
+  "name": "network-scanner",
   "version": "1.0.0",
-  "description": "Educational Nmap Network Scanner Simulator project",
+  "description": "Network Scanner - host discovery and port reporting web application",
   "scripts": {
     "install:all": "npm install && npm run install:backend && npm run install:frontend",
     "install:backend": "cd backend && npm install",

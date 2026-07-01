@@ -61,7 +61,6 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
     { value: 'udp', label: 'UDP Scan', cmd: '-sU -F', description: 'Scans major UDP endpoints' }
   ];
 
-  // Auto-scroll console
   useEffect(() => {
     if (consoleEndRef.current) {
       consoleEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -95,13 +94,11 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
 
     // Simulated terminal print stream
     const logs = [
-      `[+] Initializing educational Nmap scan runner...`,
+      `[+] Initializing scan runner...`,
       `[+] Target parsed: ${target.trim()}`,
-      `[+] Scan parameter configuration: nmap ${scanTypes.find(t => t.value === scanType)?.cmd} ${target.trim()}`,
-      `[+] Bypassing active firewall shunning for virtual localhost subnet...`,
+      `[+] Scan parameter configuration: ${scanTypes.find(t => t.value === scanType)?.cmd} ${target.trim()}`,
       `[+] Sending probe packets (ICMP ping & SYN handshake verification)...`,
       `[+] Target host responded. Latency detected under 15ms.`,
-      `[+] Beginning port scanning queries (range: 1 - 1000)...`,
       `[+] Analyzing TCP/IP packet replies for banner grabbing...`,
       `[+] Extracting system fingerprint vectors...`,
       `[+] Scan completed. Compiling structured network audit ledger...`
@@ -195,8 +192,8 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
         pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
-      
-      pdf.save(`nmap_report_${activeResult.host.replace(/[^\w-]/g, '_')}.pdf`);
+
+      pdf.save(`network_report_${activeResult.host.replace(/[^\\w-]/g, '_')}.pdf`);
       showToast('PDF exported successfully!', 'success');
     } catch (error) {
       console.error(error);
@@ -215,10 +212,10 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
         <div className="lg:col-span-8 glass-panel rounded-2xl p-6 border border-white/5">
           <h2 className="text-xl font-bold text-white mb-1.5 flex items-center gap-2">
             <Terminal className="h-5 w-5 text-emerald-400" />
-            Educational Recon Engine
+            Scan Engine
           </h2>
           <p className="text-xs text-gray-400 mb-6 font-light">
-            Inputs are scrutinized to block command injections. Real-time packets are simulated dynamically in a sandbox.
+            Inputs are validated to block command injections. Scans are modeled for safe, local testing.
           </p>
 
           <form onSubmit={handleStartScan} className="space-y-5">
@@ -252,7 +249,7 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-2">
               <span className="text-[11px] text-gray-500 font-mono">
-                Active config: <code className="text-emerald-400">nmap {scanTypes.find(t => t.value === scanType)?.cmd} {target || "[target]"}</code>
+                Active config: <code className="text-emerald-400">{scanTypes.find(t => t.value === scanType)?.cmd} {target || "[target]"}</code>
               </span>
               
               <button
@@ -387,8 +384,8 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/5">
                 <div>
                   <div className="text-[10px] font-mono text-emerald-400 font-bold mb-1 uppercase tracking-wider">
-                    {activeResult.scanTypeLabel} Simulation Ledger
-                  </div>
+                      {activeResult.scanTypeLabel} Scan Report
+                    </div>
                   <h3 className="text-2xl font-bold text-white">{activeResult.host}</h3>
                   <p className="text-xs text-gray-400 font-mono mt-0.5">Resolved IP: {activeResult.ip} • Host: {activeResult.hostname}</p>
                 </div>
@@ -526,7 +523,7 @@ export default function Scanner({ scanHistory, addScanToHistory, showToast }: Sc
                 <div className="flex justify-between items-center mb-4">
                   <h4 className="text-sm font-bold text-white flex items-center gap-2">
                     <Terminal className="h-4 w-4 text-cyan-400" />
-                    Nmap Terminal Console Log (Raw output)
+                    Terminal Console Log (Raw output)
                   </h4>
                   <button
                     onClick={() => {

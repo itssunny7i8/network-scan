@@ -38,7 +38,7 @@ scanRouter.post('/scan', async (req: Request, res: Response) => {
 
     const { target, scanType } = validation.data;
 
-    // 2. Perform simulated Nmap scan
+    // 2. Perform simulated scan
     const results = await scanService.executeScan(target, scanType);
 
     // 3. Return JSON response
@@ -51,7 +51,7 @@ scanRouter.post('/scan', async (req: Request, res: Response) => {
     console.error('Scan Error:', error);
     return res.status(500).json({
       success: false,
-      error: 'An internal error occurred while conducting the network scan simulation.'
+      error: 'An internal server error occurred while conducting the network scan.'
     });
   }
 });

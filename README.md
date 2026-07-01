@@ -1,16 +1,15 @@
-# Nmap Network Scanner Simulator
+# Network Scanner
 
-An interactive, responsive educational simulator web application built for cybersecurity university labs to demonstrate port scanning, network reconnaissance, and version detection mechanics in a safe, controlled environment.
+An interactive, responsive network discovery application designed to discover hosts, identify running services, analyze open ports, and present scan results through a clean, intuitive interface.
 
 ## 🌟 Project Purpose & Scope
 
-This application is designed strictly for instructional purposes. To comply with security guidelines and prevent unauthorized scanning, the system does not execute live Nmap shell commands against targets. Instead, it utilizes a modular simulated scanning engine (`MockScanService`) that models the behavior of standard Nmap scans on private laboratory networks, virtual machines, and localhost targets.
+The backend models scan behavior using a `MockScanService` that generates realistic, structured scan output for safe testing on localhost or private networks. The system does not execute external scanning binaries against remote targets.
 
-It serves as an excellent resource for:
-- Understanding the difference between TCP SYN, TCP Connect, OS Detection, and UDP scans.
-- Visualizing standard port status structures.
-- Analyzing raw Nmap console outputs and structured reports.
-- Explaining how to secure and audit host networks against port scans.
+Network Scanner is useful for:
+- Discovering active hosts and open services on local networks.
+- Generating readable reports of open ports and services.
+- Demonstrating common scan techniques and result interpretation.
 
 ---
 

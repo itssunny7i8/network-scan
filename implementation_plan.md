@@ -1,13 +1,13 @@
-# Implementation Plan - Nmap Network Scanner Educational Simulator
+# Implementation Plan - Network Scanner
 
-Build a complete, responsive, and educational Nmap simulator web application using React + Vite + TypeScript (Frontend) and Node.js + Express + TypeScript (Backend). 
+Build a complete, responsive network discovery and reporting web application using React + Vite + TypeScript (Frontend) and Node.js + Express + TypeScript (Backend).
 
-To ensure safety and prevent external reconnaissance execution, the backend will use a mock execution service (`MockScanService`) that models the behavior of Nmap scans on private labs or local environments. It will generate highly realistic, detailed scan data, parse it, and serve it via secure API endpoints.
+To ensure safety for local testing, the backend provides a mock `MockScanService` that models scan behavior for localhost and private network targets. It generates realistic, structured scan data and serves it via secure API endpoints.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> **No Active Scanning:** This project is built as a highly realistic educational simulator. It will not execute live Nmap shell commands against targets. This ensures safety and prevents abuse while providing complete educational value for a university laboratory showcase.
+> **No Active Scanning:** This project models scan behavior and does not execute external scanning binaries against remote targets. This ensures safety and prevents abuse while allowing safe local testing.
 > **Single Command Startup:** We will set up a root-level `package.json` that concurrently boots both the frontend and the backend using a single command: `npm run dev`.
 
 ## Open Questions
@@ -75,7 +75,7 @@ Sleek home page presenting the project hero section, cybersecurity theme, featur
 Interactive scanning terminal where users input targets, configure scans, watch real-time console logs, visualize results in charts and tables, and export reports.
 
 #### [NEW] [src/pages/About.tsx](file:///c:/Cyber Project/network scan/frontend/src/pages/About.tsx)
-Educational page detailing Nmap, scanning theories (SYN vs Connect, UDP, OS detection), and ethical guidelines.
+Informational page describing network scanning concepts (SYN vs Connect, UDP, OS detection), and ethical guidelines.
 
 #### [NEW] [src/pages/Documentation.tsx](file:///c:/Cyber Project/network scan/frontend/src/pages/Documentation.tsx)
 Detailed technical docs showcasing frontend/backend flow diagrams, API requests, parameters, and developer installation steps.

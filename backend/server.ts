@@ -13,16 +13,14 @@ app.use(helmet());
 // 2. Enable CORS with specific options
 const allowedOrigins = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
-  : ['http://localhost:3000'];
+  : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (curl, Render health checks) or matched origins
-    if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
-      callback(null, true);
-    } else {
-      callback(new Error(`CORS: origin ${origin} not allowed`));
-    }
+    const isLocalhostOrigin = typeof origin === 'string' && /^https?:\/\/localhost(:\d+)?$/.test(origin);
+    const allowOrigin = !origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*') || isLocalhostOrigin;
+
+    callback(null, allowOrigin);
   },
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -50,7 +48,7 @@ app.use('/api', scanRouter);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'ok', simulator: 'active' });
+  res.status(200).json({ status: 'ok', product: 'network-scanner' });
 });
 
 // 6. Global error handler middleware
@@ -65,7 +63,7 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 // Start listening
 app.listen(PORT, () => {
   console.log(`=================================================`);
-  console.log(`🚀 Nmap Scanner Educational Simulator Backend Active`);
+  console.log(`🚀 Network Scanner Backend Active`);
   console.log(`📡 Port: ${PORT}`);
   console.log(`🔒 Security: Helmet, CORS, and Rate Limiting enabled`);
   console.log(`=================================================`);

@@ -37,8 +37,8 @@ export default function Home({ setCurrentPage }: HomeProps) {
     },
     {
       icon: <BookOpen className="h-6 w-6 text-purple-400" />,
-      title: "Educational Guides",
-      description: "Examine detailed visual flowcharts and guides detailing packet handshakes, port state logic, and Nmap engine operations."
+      title: "Guides",
+      description: "Examine visual flowcharts and guides detailing packet handshakes, port state logic, and service detection techniques."
     },
     {
       icon: <Shield className="h-6 w-6 text-emerald-500" />,
@@ -69,7 +69,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-400">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Educational Lab Environment
+            Ready
           </div>
         </motion.div>
 
@@ -79,14 +79,14 @@ export default function Home({ setCurrentPage }: HomeProps) {
             className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight"
             variants={itemVariants}
           >
-            Nmap <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent text-glow-emerald">Network Scanner</span>
+            Network Scanner
           </motion.h1>
           
           <motion.p 
             className="text-lg md:text-xl text-gray-400 font-light mb-8 leading-relaxed"
             variants={itemVariants}
           >
-            An interactive educational simulator showcasing reconnaissance mechanics, scanning signatures, and visual reporting for academic security laboratories.
+            Network Scanner is a modern web application designed to discover network hosts, identify running services, analyze open ports, and present scan results through a clean and intuitive interface.
           </motion.p>
 
           <motion.div 
@@ -97,7 +97,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
               onClick={() => setCurrentPage('scanner')}
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white font-medium shadow-lg shadow-emerald-500/15 hover:shadow-emerald-400/20 transition-all duration-300 transform hover:-translate-y-0.5 group"
             >
-              Start Simulator
+              Start Scan
               <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </motion.div>
@@ -125,9 +125,9 @@ export default function Home({ setCurrentPage }: HomeProps) {
           <div className="text-center">
             <h3 className="text-sm font-mono text-emerald-400 mb-1 flex items-center gap-1.5 justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              SIMULATION GATEWAY READY
+              GATEWAY READY
             </h3>
-            <p className="text-xs text-gray-500 font-mono">127.0.0.1 // LAN GATEWAY // SECURE SANDBOX</p>
+            <p className="text-xs text-gray-500 font-mono">127.0.0.1 // LAN GATEWAY // LOCAL TEST</p>
           </div>
         </motion.div>
 
@@ -162,7 +162,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
             <div>
               <h4 className="text-base font-semibold text-amber-200 mb-1">Ethical Framework & Scope Reminder</h4>
               <p className="text-sm text-amber-400/80 leading-relaxed font-light">
-                This simulator is hosted in an isolated lab context. Under security regulations, active port scans should never be targeted against external internet infrastructures without written administrative authorization. Practice and test scan procedures inside localhost, private virtualization hosts, or container networks.
+                This application is intended for authorized testing on localhost and private networks. Do not target external internet infrastructure without explicit written permission. Practice and test scan procedures inside localhost, private virtualization hosts, or container networks.
               </p>
             </div>
           </div>
