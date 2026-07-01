@@ -5,7 +5,6 @@ import rateLimit from 'express-rate-limit';
 import scanRouter from './scanRouter';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // 1. Apply Helmet security headers
 app.use(helmet());
@@ -60,11 +59,15 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   });
 });
 
-// Start listening
-app.listen(PORT, () => {
-  console.log(`=================================================`);
-  console.log(`🚀 Network Scanner Backend Active`);
-  console.log(`📡 Port: ${PORT}`);
-  console.log(`🔒 Security: Helmet, CORS, and Rate Limiting enabled`);
-  console.log(`=================================================`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`=================================================`);
+    console.log(`🚀 Network Scanner Backend Active`);
+    console.log(`📡 Port: ${PORT}`);
+    console.log(`🔒 Security: Helmet, CORS, and Rate Limiting enabled`);
+    console.log(`=================================================`);
+  });
+}
+
+export default app;
